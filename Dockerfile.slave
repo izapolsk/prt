@@ -1,0 +1,17 @@
+FROM fedora:29
+
+# installing essential packages
+RUN dnf install -y git vim python python-devel python-pip ansible && dnf clean all
+
+# setup everything
+ADD playbooks /playbooks
+
+# copy env config file
+RUN ansible-playbook /playbooks/initial_setup.yml
+
+
+#ADD setup.sh /setup.sh
+#ADD post_result.py /post_result.py
+#ADD get_keys.py /get_keys.py
+#ADD verify_commit.py /verify_commit.py
+#ADD check_provisioned.py /check_provisioned.py

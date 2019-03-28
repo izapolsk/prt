@@ -1,0 +1,10 @@
+base_dir: /cfme
+cfme_repo: https://github.com/RedHatQE/cfme_tests.git
+cfme_branch: master
+cfme_repo_dir: "{{ base_dir }}/cfme_tests"
+
+cfme_data_repo: https://gitlab.cee.redhat.com/cfme-qe/cfme-qe-yamls.git
+cfme_data_branch: master
+cfme_data_dir: "{{ base_dir }}/cfme-qe-yamls"
+
+cfme_venv: "{{ base_dir }}/cfme_venv"

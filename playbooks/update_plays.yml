@@ -1,0 +1,18 @@
+- name: clone or update integration tests repo
+  git:
+    repo: "{{ cfme_repo }}"
+    dest: "{{ cfme_repo_dir }}"
+    version: "{{ cfme_branch }}"
+
+- name: clone or update yamls
+  git:
+    repo: "{{ cfme_data_repo }}"
+    dest: "{{ cfme_data_dir }}"
+    version: "{{ cfme_data_branch }}"
+  environment:
+    GIT_SSL_NO_VERIFY: true
+
+- name: run full env setup
+  command: "python -m cfme.scripting.quickstart"
+  args:
+    chdir: "{{  cfme_repo_dir }}"
